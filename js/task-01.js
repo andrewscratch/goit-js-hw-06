@@ -1,27 +1,20 @@
-const ulEl = document.querySelector("ul#categories");
-const countOfChildren = ulEl.children.length;
-console.log(`В списку ${countOfChildren} категорії.`);
-const liEl = ulEl.children;
-console.log("liEl: ", liEl); 
-// [li.item, li.item, li.item]
-for (let i = 0; i < liEl.length; i++) {
-const childrenOfLi = liEl[i].children;
-console.log(childrenOfLi[0]);
-const textContent = childrenOfLi[0].textContent;
-      console.log("Категорія: ", textContent);
-      const countOfChild = childrenOfLi[1].children.length;
-      console.log("Кількість елементів: ", countOfChild);
-    }
+console.log(
+  "Number of categories: ",
+  document.querySelectorAll(".item").length
+);
 
-    const list = document.querySelectorAll('li.item');
-    
-    console.log(`В списку ${list.length} категорії.`);
-    
-    const ul = document.querySelectorAll('#categories>li');
-    ul.forEach(el => {
-    
-      console.log(
-        `Категорія: ${el.firstElementChild.textContent}, Кількість елементів: ${el.lastElementChild.children.length}`,
-      );
-    });
+const categoryTitles = [];
+document.querySelectorAll(".item h2").forEach(function (title) {
+  categoryTitles.push(title.textContent);
+});
+
+const subCategoryCounts = [];
+document.querySelectorAll(".item ul").forEach(function (subCategory) {
+  subCategoryCounts.push(subCategory.children.length);
+});
+
+for (let i = 0; i < categoryTitles.length; i += 1) {
+  console.log("Category: ", categoryTitles[i]);
+  console.log("Elements: ", subCategoryCounts[i]);
+}
     
